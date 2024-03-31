@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "name": "test.jar",
+      "url": "http://example.com/file1.jar"
+    },
+    {
+      "name": "1.exe",
+      "url": "http://example.com/file2.exe"
+    },
+    {
+      "name": "4.exe",
+      "url": "http://example.com/file4.exe"
+    }
+  ]
+}
