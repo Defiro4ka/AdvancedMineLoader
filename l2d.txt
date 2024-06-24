@@ -6,10 +6,18 @@ function Execute-WithAdminRights {
         [string]$Command
     )
 
+    # Создание скрипта для выполнения команд
+    $scriptBlock = {
+        param (
+            [string]$InnerCommand
+        )
+        Invoke-Expression $InnerCommand
+    }
+
     # Запрос повышения привилегий
     $psi = New-Object System.Diagnostics.ProcessStartInfo
     $psi.FileName = "powershell.exe"
-    $psi.Arguments = "-NoProfile -ExecutionPolicy Bypass -Command `"$Command`""
+    $psi.Arguments = "-NoProfile -ExecutionPolicy Bypass -Command `"& { $scriptBlock '$Command' }`""
     $psi.Verb = "RunAs"
 
     try {
