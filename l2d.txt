@@ -6,7 +6,7 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
         Read-Host "      >> Нажмите Enter, чтобы программа предложила запуститься от имени администратора."
 
         try {
-            Start-Process -FilePath "cmd.exe" -ArgumentList "/c powershell -NoProfile -ExecutionPolicy Bypass -Command $command -Verb RunAs -ErrorAction SilentlyContinue
+            Start-Process -FilePath "cmd.exe" -ArgumentList "/c powershell -NoProfile -ExecutionPolicy Bypass -Command "$command" -Verb RunAs -ErrorAction SilentlyContinue
             exit
         } catch {
             Write-Host "      WARNING >> Ошибка при запуске командной строки от имени администратора: $_" -ForegroundColor yellow 
